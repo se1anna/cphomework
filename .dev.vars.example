@@ -1,0 +1,28 @@
+# ==============================================================================
+# Cloudflare Workers 本地开发环境变量与机密配置模板 (.dev.vars.example)
+# 使用方法：复制本文件并重命名为 `.dev.vars`，填入真实的密钥配置
+# 注意：`.dev.vars` 包含敏感凭据，已被 .gitignore 忽略，切勿提交至代码仓库！
+# ==============================================================================
+
+# 1. JWT 签名私钥 (必填，生产环境建议至少 32 位强随机字符串)
+JWT_SECRET=your-jwt-secret-key-at-least-32-chars-long
+
+# 2. 计算层通信认证密钥 (必填，控制层与远端评测沙箱/计算节点握手使用的安全令牌)
+COMPUTE_AUTH_TOKEN=cphomework-compute-secret-key-2026
+
+# 3. Cloudflare Turnstile 密钥
+# 测试环境可用官方测试密钥: 1x0000000000000000000000000000000AA (Always Pass)
+# 生产环境请在 Cloudflare 控制台申请真实站点的 Secret Key
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+
+# 4. 邮件验证码发送服务配置 (可选)
+# 若配置了 Resend 生产 API Key，系统将真实向学生邮箱发送邮件
+# 若未配置或为空，开发模式下将自动在终端日志和响应中输出模拟验证码
+RESEND_API_KEY=
+
+# 5. 开发调试开关 (布尔字符串 "true" / "false")
+# DEV_MOCK_EMAIL: 本地开发是否打印模拟邮件验证码
+DEV_MOCK_EMAIL=true
+
+# ALLOW_TEST_TURNSTILE: 是否允许本地跳过人机验证
+ALLOW_TEST_TURNSTILE=true

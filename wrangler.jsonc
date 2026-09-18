@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cphomework",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-02-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CPHW_KV",
+      "id": "cphw_kv_namespace"
+    }
+  ],
+  "vars": {
+    "JWT_SECRET": "FILLTHIS",
+    "COMPUTE_AUTH_TOKEN": "FILLTHIS",
+    "TURNSTILE_SECRET_KEY": "FILLTHIS",
+    "DEV_MOCK_EMAIL": "true",
+    "ALLOW_TEST_TURNSTILE": "true"
+  }
+}

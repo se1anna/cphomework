@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - '@cloudflare/kumo@2.14.0'
+  - miniflare@5.20260917.0-alpha
+  - wrangler@4.134.0
